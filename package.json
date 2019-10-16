@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "lint": "stylelint --fix \"src/scss/**/*.scss\"",
-    "test": "yarn jest --testRegex tests"
+    "test": "yarn jest --testRegex tests",
+    "build": "yarn gulp"
   },
   "style": [
     "_random-contrast-compliant.scss"

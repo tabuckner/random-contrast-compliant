@@ -1,0 +1,18 @@
+{
+  "name": "@tabuckner/random-contrast-compliant",
+  "description": "A SCSS helper to generate a Random color that is Compliant with your specified WCAG contrast guidelines.",
+  "tags": [
+    "WCAG",
+    "contrast",
+    "MDC-Web",
+    "compliance",
+    "random",
+    "colors",
+    "contrasting",
+    "AA",
+    "AAA",
+    "function"
+  ],
+  "website": "https://github.com/tabuckner/random-contrast-compliant",
+  "docs": "https://github.com/tabuckner/random-contrast-compliant/blob/master/README.md"
+}
