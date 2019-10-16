@@ -15,6 +15,9 @@
   "style": [
     "_random-contrast-compliant.scss"
   ],
+  "files": [
+    "dist/_random-contrast-compliant.scss"
+  ],
   "devDependencies": {
     "glob": "^7.1.4",
     "gulp": "3.9.1",
