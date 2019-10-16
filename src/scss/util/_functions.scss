@@ -1,6 +1,3 @@
-@import "../constants/linear-channel-values";
-@import "../constants/config-defaults";
-
 @function getRandomContrastCompliant($backgroundColor, $contrastRatioMinimum: $default-contrast-minimum, $contrastRatioMaximum: $default-contrast-maximum) {
   $randomRgbColor: randomRgb();
   $randomRgbContrast: contrast($backgroundColor, $randomRgbColor);
