@@ -1,0 +1,49 @@
+@import 'true';
+@import './functions';
+
+@include describe('getRandomContrastCompliant') {
+  @include it('should be truthy') {
+    $mockBg: #cdcdcd;
+    $mockContrastThreshold: 4.5;
+    $testEval: getRandomContrastCompliant($mockBg, $mockContrastThreshold);
+    @include assert-true($testEval);
+  }
+
+  @include it('should return an RGB value') {
+    $mockBg: #cdcdcd;
+    $mockContrastThreshold: 4.5;
+    $testEval: getRandomContrastCompliant($mockBg, $mockContrastThreshold);
+    $testR: red($testEval);
+    $testG: green($testEval);
+    $testB: blue($testEval);
+    @include assert-equal(type-of($testEval), 'color');
+    @include assert-true($testR > 0 and $testR < 255);
+    @include assert-true($testG > 0 and $testG < 255);
+    @include assert-true($testB > 0 and $testB < 255);
+  }
+
+  @include it('should return a color that is of higher contrast than the user defined minimum') {
+    $mockBg: #cdcdcd;
+    $mockContrastThreshold: 4.5;
+    $testEval: getRandomContrastCompliant($mockBg, $mockContrastThreshold);
+    $testEvalContrast: contrast($mockBg, $testEval);
+    @include assert-true($testEvalContrast > $mockContrastThreshold);
+  }
+
+  @include it('should return a color that is of lower contrast than the user default max') {
+    $mockBg: #cdcdcd;
+    $mockContrastThreshold: 4.5;
+    $testEval: getRandomContrastCompliant($mockBg, $mockContrastThreshold);
+    $testEvalContrast: contrast($mockBg, $testEval);
+    @include assert-true($testEvalContrast < 10);
+  }
+
+  @include it('should return a color that is of lower contrast than the user defined max') {
+    $mockBg: #cdcdcd;
+    $mockContrastThreshold: 4.5;
+    $mockMaxContrast: 6;
+    $testEval: getRandomContrastCompliant($mockBg, $mockContrastThreshold, $mockMaxContrast);
+    $testEvalContrast: contrast($mockBg, $testEval);
+    @include assert-true($testEvalContrast < $mockMaxContrast);
+  }
+}
